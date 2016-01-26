@@ -439,3 +439,127 @@ func (vs ValueLabels) Value(i int) float64 {
 func (vs ValueLabels) Label(i int) string {
 	return vs[i].Label
 }
+
+
+
+// Random extensions of boxplots
+
+
+
+type BoxPlotWithConfidenceIntervals struct {
+	BoxPlot
+}
+
+type BoxPlotWithConfidenceIntervalsStacked struct {
+	BoxPlotWithConfidenceIntervals
+	subBoxPlot BoxPlotWithConfidenceIntervals
+}
+
+func NewBoxPlotWithConfidenceIntervals(w vg.Length, loc float64, values Valuer) (*BoxPlotWithConfidenceIntervals, error) {
+	b, err := NewBoxPlot(w, loc, values)
+	if err != nil {
+		return nil, err
+	}
+	return &BoxPlotWithConfidenceIntervals{*b}, nil
+}
+
+func (b *BoxPlotWithConfidenceIntervals) Plot(c draw.Canvas, plt *plot.Plot) {
+	if b.Horizontal {
+		panic("not handling horizontal BoxPlotWithConfidenceIntervals")
+	}
+
+	b.BoxPlot.Plot(c, plt)
+
+	trX, trY := plt.Transforms(&c)
+	x := trX(b.Location)
+	if !c.ContainsX(x) {
+		return
+	}
+	x += b.Offset
+
+	mean, err, _ := meanAndConf95(b.Values)
+
+	meanLength := trY(mean)
+	lowLength := trY(mean - err)
+	highLength := trY(mean + err)
+
+	confidenceVertices := []draw.Point{
+		{x - b.Width/4, lowLength},
+		{x + b.Width/4, lowLength},
+		{x + b.Width/4, highLength},
+		{x - b.Width/4, highLength},
+	}
+	confidencePoly := c.ClipPolygonY(confidenceVertices)
+	gray := color.RGBA{200, 200, 200, 255}
+	c.FillPolygon(gray, confidencePoly)
+
+	meanLine := c.ClipLinesY([]draw.Point{
+		{x - b.Width/4, meanLength},
+		{x + b.Width/4, meanLength},
+	})
+
+	meanStyle := b.BoxStyle
+	meanStyle.Color = color.RGBA{150, 150, 150, 255}
+	c.StrokeLines(meanStyle, meanLine...)
+}
+
+func meanAndConf95(vls []float64) (mean, lowerr, higherr float64) {
+	n := float64(len(vls))
+
+	sum := 0.0
+	for _, v := range vls {
+		sum += v
+	}
+	mean = sum / n
+
+	sum = 0.0
+	for _, v := range vls {
+		diff := v - mean
+		sum += diff * diff
+	}
+	stdev := math.Sqrt(sum / n)
+
+	conf := 1.96 * stdev / math.Sqrt(n)
+	return mean, conf, conf
+}
+
+func NewBoxPlotWithConfidenceIntervalsStacked(w vg.Length, loc float64, values, subValues Valuer) (*BoxPlotWithConfidenceIntervalsStacked, error) {
+	b1, err := NewBoxPlot(w, loc, values)
+	if err != nil {
+		return nil, err
+	}
+
+	b2, err := NewBoxPlot(w, loc, subValues)
+	if err != nil {
+		return nil, err
+	}
+
+	newBox := &BoxPlotWithConfidenceIntervalsStacked{ BoxPlotWithConfidenceIntervals: BoxPlotWithConfidenceIntervals{*b1}, subBoxPlot:BoxPlotWithConfidenceIntervals{*b2} }
+
+	sorted := make(Values, len(b1.Values) + len(b2.Values))
+	for i, val := range b1.Values {
+		sorted[i] = val
+	}
+
+	offset := len(b1.Values)
+	for i, val := range b2.Values {
+		sorted[i + offset] = val	
+	}
+	sort.Float64s(sorted)
+
+	newBox.fiveStatPlot.Min = sorted[0]
+	newBox.fiveStatPlot.Max = sorted[len(sorted)-1]
+
+	newBox.subBoxPlot.fiveStatPlot.Min = sorted[0]
+	newBox.subBoxPlot.Max = sorted[len(sorted)-1]
+
+	return newBox, nil
+}
+
+func (b *BoxPlotWithConfidenceIntervalsStacked) Plot(c draw.Canvas, plt *plot.Plot) {
+	if b.Horizontal {
+		panic("not handling horizontal BoxPlotWithConfidenceIntervalsStacked")
+	}
+	b.BoxPlotWithConfidenceIntervals.Plot(c, plt)
+	b.subBoxPlot.Plot(c, plt)
+}
