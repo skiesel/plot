@@ -5,7 +5,7 @@
 package plot
 
 import (
-	"github.com/gonum/plot/vg/draw"
+	"github.com/skiesel/plot/vg/draw"
 )
 
 // Draw exports the Legend draw method for testing.

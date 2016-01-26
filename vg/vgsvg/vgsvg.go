@@ -15,7 +15,7 @@ import (
 	"math"
 
 	svgo "github.com/ajstarks/svgo"
-	"github.com/gonum/plot/vg"
+	"github.com/skiesel/plot/vg"
 )
 
 // DPI is the resolution of drawing in SVG. This value was determined by

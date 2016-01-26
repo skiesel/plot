@@ -14,9 +14,9 @@ import (
 	"path/filepath"
 	"testing"
 
-	"github.com/gonum/plot"
-	"github.com/gonum/plot/plotter"
-	"github.com/gonum/plot/vg"
+	"github.com/skiesel/plot"
+	"github.com/skiesel/plot/plotter"
+	"github.com/skiesel/plot/vg"
 )
 
 var generateTestData = flag.Bool("regen", false, "Uses the current state to regenerate the test data.")

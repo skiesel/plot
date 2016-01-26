@@ -4,8 +4,8 @@ import (
 	"encoding/gob"
 	"image/color"
 
-	"github.com/gonum/plot"
-	"github.com/gonum/plot/plotter"
+	"github.com/skiesel/plot"
+	"github.com/skiesel/plot/plotter"
 )
 
 func init() {

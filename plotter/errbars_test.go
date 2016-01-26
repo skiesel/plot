@@ -9,8 +9,8 @@ import (
 	"math/rand"
 	"testing"
 
-	"github.com/gonum/plot"
-	"github.com/gonum/plot/vg/draw"
+	"github.com/skiesel/plot"
+	"github.com/skiesel/plot/vg/draw"
 )
 
 // ExampleErrors draws points and error bars.

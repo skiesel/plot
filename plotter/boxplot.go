@@ -8,10 +8,11 @@ import (
 	"errors"
 	"math"
 	"sort"
+	"image/color"
 
-	"github.com/gonum/plot"
-	"github.com/gonum/plot/vg"
-	"github.com/gonum/plot/vg/draw"
+	"github.com/skiesel/plot"
+	"github.com/skiesel/plot/vg"
+	"github.com/skiesel/plot/vg/draw"
 )
 
 // fiveStatPlot contains the shared fields for quartile

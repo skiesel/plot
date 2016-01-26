@@ -10,7 +10,7 @@ import (
 	"image/color"
 	"runtime"
 
-	"github.com/gonum/plot/vg"
+	"github.com/skiesel/plot/vg"
 )
 
 var _ vg.Canvas = (*Canvas)(nil)

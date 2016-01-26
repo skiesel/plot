@@ -8,10 +8,10 @@ import (
 	"image/color"
 	"math"
 
-	"github.com/gonum/plot"
-	"github.com/gonum/plot/palette"
-	"github.com/gonum/plot/vg"
-	"github.com/gonum/plot/vg/draw"
+	"github.com/skiesel/plot"
+	"github.com/skiesel/plot/palette"
+	"github.com/skiesel/plot/vg"
+	"github.com/skiesel/plot/vg/draw"
 )
 
 // GridXYZ describes three dimensional data where the X and Y

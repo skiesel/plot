@@ -10,8 +10,8 @@ import (
 	"strconv"
 
 	"github.com/gonum/floats"
-	"github.com/gonum/plot/vg"
-	"github.com/gonum/plot/vg/draw"
+	"github.com/skiesel/plot/vg"
+	"github.com/skiesel/plot/vg/draw"
 )
 
 // displayPrecision is a sane level of float precision for a plot.

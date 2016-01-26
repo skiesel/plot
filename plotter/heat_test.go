@@ -9,8 +9,8 @@ import (
 	"testing"
 
 	"github.com/gonum/matrix/mat64"
-	"github.com/gonum/plot"
-	"github.com/gonum/plot/palette"
+	"github.com/skiesel/plot"
+	"github.com/skiesel/plot/palette"
 )
 
 func ExampleHeatMap() {

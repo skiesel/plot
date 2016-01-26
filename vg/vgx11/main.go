@@ -10,11 +10,11 @@ import (
 	"math/rand"
 	"time"
 
-	"github.com/gonum/plot"
-	"github.com/gonum/plot/plotter"
-	"github.com/gonum/plot/plotutil"
-	"github.com/gonum/plot/vg/draw"
-	"github.com/gonum/plot/vg/vgx11"
+	"github.com/skiesel/plot"
+	"github.com/skiesel/plot/plotter"
+	"github.com/skiesel/plot/plotutil"
+	"github.com/skiesel/plot/vg/draw"
+	"github.com/skiesel/plot/vg/vgx11"
 )
 
 func main() {

@@ -10,9 +10,9 @@
 // interface can draw to the data area of a plot using the primitives
 // made available by this package.  Some standard implementations
 // of the Plotter interface can be found in the
-// github.com/gonum/plot/plotter package
+// github.com/skiesel/plot/plotter package
 // which is documented here:
-// http://godoc.org/github.com/gonum/plot/plotter
+// http://godoc.org/github.com/skiesel/plot/plotter
 package plot
 
 import (
@@ -23,8 +23,8 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/gonum/plot/vg"
-	"github.com/gonum/plot/vg/draw"
+	"github.com/skiesel/plot/vg"
+	"github.com/skiesel/plot/vg/draw"
 )
 
 var (
@@ -66,9 +66,9 @@ type Plot struct {
 
 // Plotter is an interface that wraps the Plot method.
 // Some standard implementations of Plotter can be
-// found in the github.com/gonum/plot/plotter
+// found in the github.com/skiesel/plot/plotter
 // package, documented here:
-// http://godoc.org/github.com/gonum/plot/plotter
+// http://godoc.org/github.com/skiesel/plot/plotter
 type Plotter interface {
 	// Plot draws the data to a draw.Canvas.
 	Plot(draw.Canvas, *Plot)

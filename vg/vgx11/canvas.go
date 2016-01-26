@@ -18,8 +18,8 @@ import (
 	"github.com/BurntSushi/xgbutil/xwindow"
 	"github.com/llgcode/draw2d/draw2dimg"
 
-	"github.com/gonum/plot/vg"
-	"github.com/gonum/plot/vg/vgimg"
+	"github.com/skiesel/plot/vg"
+	"github.com/skiesel/plot/vg/vgimg"
 )
 
 // dpi is the number of dots per inch.

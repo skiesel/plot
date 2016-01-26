@@ -10,11 +10,11 @@ import (
 	"math"
 	"strings"
 
-	"github.com/gonum/plot/vg"
-	"github.com/gonum/plot/vg/vgeps"
-	"github.com/gonum/plot/vg/vgimg"
-	"github.com/gonum/plot/vg/vgpdf"
-	"github.com/gonum/plot/vg/vgsvg"
+	"github.com/skiesel/plot/vg"
+	"github.com/skiesel/plot/vg/vgeps"
+	"github.com/skiesel/plot/vg/vgimg"
+	"github.com/skiesel/plot/vg/vgpdf"
+	"github.com/skiesel/plot/vg/vgsvg"
 )
 
 // A Canvas is a vector graphics canvas along with

@@ -7,9 +7,9 @@ package plotter
 import (
 	"image/color"
 
-	"github.com/gonum/plot"
-	"github.com/gonum/plot/vg"
-	"github.com/gonum/plot/vg/draw"
+	"github.com/skiesel/plot"
+	"github.com/skiesel/plot/vg"
+	"github.com/skiesel/plot/vg/draw"
 )
 
 // Line implements the Plotter interface, drawing a line.

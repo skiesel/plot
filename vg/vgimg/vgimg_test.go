@@ -8,11 +8,11 @@ import (
 	"path/filepath"
 	"testing"
 
-	"github.com/gonum/plot"
-	"github.com/gonum/plot/plotter"
-	"github.com/gonum/plot/vg"
-	"github.com/gonum/plot/vg/draw"
-	"github.com/gonum/plot/vg/vgimg"
+	"github.com/skiesel/plot"
+	"github.com/skiesel/plot/plotter"
+	"github.com/skiesel/plot/vg"
+	"github.com/skiesel/plot/vg/draw"
+	"github.com/skiesel/plot/vg/vgimg"
 )
 
 func TestIssue179(t *testing.T) {

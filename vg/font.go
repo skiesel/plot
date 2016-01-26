@@ -28,7 +28,7 @@ const (
 	// importString is the import string expected for
 	// this package.  It is used to find the font
 	// directory included with the package source.
-	importString = "github.com/gonum/plot/vg"
+	importString = "github.com/skiesel/plot/vg"
 )
 
 var (

@@ -7,9 +7,9 @@ package plotter
 import (
 	"math"
 
-	"github.com/gonum/plot"
-	"github.com/gonum/plot/vg"
-	"github.com/gonum/plot/vg/draw"
+	"github.com/skiesel/plot"
+	"github.com/skiesel/plot/vg"
+	"github.com/skiesel/plot/vg/draw"
 )
 
 // DefaultCapWidth is the default width of error bar caps.

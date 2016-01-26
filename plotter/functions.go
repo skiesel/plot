@@ -5,8 +5,8 @@
 package plotter
 
 import (
-	"github.com/gonum/plot"
-	"github.com/gonum/plot/vg/draw"
+	"github.com/skiesel/plot"
+	"github.com/skiesel/plot/vg/draw"
 )
 
 // Function implements the Plotter interface,

@@ -8,7 +8,7 @@ import (
 	"math"
 	"sort"
 
-	"github.com/gonum/plot/plotter"
+	"github.com/skiesel/plot/plotter"
 )
 
 // ErrorPoints holds a set of x, y pairs along

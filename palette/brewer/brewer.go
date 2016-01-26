@@ -23,7 +23,7 @@ import (
 	"fmt"
 	"image/color"
 
-	"github.com/gonum/plot/palette"
+	"github.com/skiesel/plot/palette"
 )
 
 // Color represents a Brewer Palette color.
